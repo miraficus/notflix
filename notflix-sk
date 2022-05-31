@@ -1,0 +1,5 @@
+#!/bin/sh
+query=$(printf '%s' "$*" | tr ' ' '+' )
+movie=$(curl -s https://sktorrent.eu/torrent/torrents.php?search=$query | grep -Eo "details\.php\?id=[a-zA-Z0-9]*" | grep -Eo "=[a-zA-Z0-9]*" | grep -Eo "[a-zA-Z0-9]*" | head -n 1)
+magnet="magnet:?xt=urn:btih:$movie"
+peerflix -l -k $magnet
