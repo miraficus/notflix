@@ -1,6 +1,11 @@
 #!/bin/sh
 
+# movie variable: Downloads the website with curl then gets links from the source with grep and selects first link with head.
+# magnet variable: Downloads the website of the movie we are searching for with curl then uses regex to get magnet link from the website and selects first link with head.
+# query variable: We launch notflix with ./notflix and then type things after that it will print it. Tr then replaces spaces with pluses.
+# then peerflix starts film in mpv becouse of the -k flag
+
 query=$(printf '%s' "$*" | tr ' ' '+' )
 movie=$(curl -s https://1337x.wtf/search/$query/1/ | grep -Eo "torrent\/[0-9]{7}\/[a-zA-Z0-9?%-]*/" | head -n 1)
 magnet=$(curl -s https://1337x.wtf/$movie | grep -Po "magnet:\?xt=urn:btih:[a-zA-Z0-9]*" | head -n 1)
-peerflix -l -k $magnet
+peerflix -p 8080 -l -k "$magnet"
