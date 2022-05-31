@@ -10,9 +10,15 @@
 
 ### How does this work?
 
-This is a shell script. It scape 1337x and get the magnet link.
+This is a shell script. It scapes 1337x or Sktorrent and gets the magnet link.
 After this it use [peerflix](https://github.com/mafintosh/peerflix) to stream the video from magnet link.
 For scraping script use simple gnu utils like sed, awk, paste, cut.
+
+## Usage
+
+```sh
+notflix moviename
+```
 
 ## Requirements
 
@@ -24,8 +30,8 @@ For scraping script use simple gnu utils like sed, awk, paste, cut.
 cURL **notflix** to your **$PATH** and give execute permissions.
 
 ```sh
-$ sudo curl -sL "https://raw.githubusercontent.com/Bugswriter/notflix/master/notflix" -o /usr/local/bin/notflix
-$ sudo chmod +x /usr/local/bin/notflix
+sudo curl -sL "https://raw.githubusercontent.com/Bugswriter/notflix/master/notflix" -o /usr/local/bin/notflix
+sudo chmod +x /usr/local/bin/notflix
 ```
 - To update, just do `curl` again, no need to `chmod` anymore.
 - To uninstall, simply remove `notflix` from your **$PATH**, for example `sudo rm -f /usr/local/bin/notflix.
