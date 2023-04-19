@@ -31,7 +31,7 @@ cURL **notflix** to your **$PATH** and give execute permissions.
 
 ```sh
 
-git clone https://github.com/miraficus/notflix.git
+git clone --branch termux https://github.com/miraficus/notflix.git
 mkdir bin
 mv notflix ~/bin/notflix
 mv mpv ~/bin/mpv
